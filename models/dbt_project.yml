@@ -1,0 +1,25 @@
+version: 2
+
+sources:
+  - name: open_airquality
+    description: OpenAQ is an open-source project to surface live, real-time air quality data from around the world.  
+    tables:
+      - name: 'bigquery-public-data.openaq.global_air_quality'
+        columns:
+          - name: timestamp
+            description: time
+            tests:
+              - not_null
+
+     
+models:
+  - name: stg_open_aq
+    columns:
+      - name: timestamp
+        tests:
+          - not_null
+  - name: clean_open_aq
+    columns:
+      - name: timestamp
+        tests:
+          - not_null
